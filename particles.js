@@ -32,6 +32,7 @@ function setBackground(r, g, b){
 
 function loopDraw(){
 	setBackground(0,0,0);
+	canvas.setTransform(1,0,0,1,0,0);
     canvas.clearRect(0,0,canvasObj.width, canvasObj.height);
     loop();
     requestAnimation(loopDraw);
@@ -83,12 +84,16 @@ function Particle(){
 		return false;
 	}
 	this.draw = function(){
+		canvas.setTransform(
+			this.scale.x, 0,
+			0, this.scale.y,
+			this.position.x, this.position.y
+		);
+		canvas.rotate(this.rotation);//Math.random()*360);
 		canvas.drawImage(
 			this.image,
-			this.position.x,
-			this.position.y,
-			this.scale.x,
-			this.scale.y
+			-this.image.width/2,
+			-this.image.height/2
 		);
 	}
 }
@@ -101,7 +106,10 @@ function loop(){
 		Math.random()*canvasObj.width,
 		Math.random()*canvasObj.height
 	);
-	p.scale = new Vector(30,30);
+	p.rotationSpeed=0.1+Math.random()*0.1;
+	if(Math.random()<0.5)p.rotationSpeed *= -1;
+	var scale = Math.random()*0.3 + 0.1;
+	p.scale = new Vector(scale,scale);
 	p.life = 25;
 	p.image = particleSprites[2];
 	particles.push(p);
