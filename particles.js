@@ -1,5 +1,4 @@
 var canvas, canvasObj;
-var screenWidth,screenHeight;
 var imagesLoader;
 var particleSprites = [];
 function init(){
@@ -33,7 +32,7 @@ function setBackground(r, g, b){
 
 function loopDraw(){
 	setBackground(0,0,0);
-    canvas.clearRect(0,0,screenWidth,screenHeight);
+    canvas.clearRect(0,0,canvasObj.width, canvasObj.height);
     loop();
     requestAnimation(loopDraw);
 }
@@ -98,9 +97,13 @@ var particles = [];
 
 function loop(){
 	var p = new Particle();
-	p.position = new Vector(Math.random()*100, Math.random()*100);
-	p.life = 5;
-	p.image = particleSprites[0];
+	p.position = new Vector(
+		Math.random()*canvasObj.width,
+		Math.random()*canvasObj.height
+	);
+	p.scale = new Vector(30,30);
+	p.life = 25;
+	p.image = particleSprites[2];
 	particles.push(p);
 
     for(var i=0;i<particles.length;i++){
