@@ -12,6 +12,7 @@ function init(){
 	particleSprites.push(loadImage("particles1.png"));
 	particleSprites.push(loadImage("particles2.png"));
 	particleSprites.push(loadImage("particles3.png"));
+	start();
     loopDraw();
 }
 
@@ -98,29 +99,54 @@ function Particle(){
 	}
 }
 
-var particles = [];
-
-function loop(){
-	var p = new Particle();
-	p.position = new Vector(
-		Math.random()*canvasObj.width,
-		Math.random()*canvasObj.height
-	);
-	p.rotationSpeed=0.1+Math.random()*0.1;
-	if(Math.random()<0.5)p.rotationSpeed *= -1;
-	var scale = Math.random()*0.3 + 0.1;
-	p.scale = new Vector(scale,scale);
-	p.life = 25;
-	p.image = particleSprites[2];
-	particles.push(p);
-
-    for(var i=0;i<particles.length;i++){
-		var part = particles[i];
-        if(part.update()){
-            particles.splice(i, 1);
-            i--;
-        }else{
-			part.draw();
+function ParticleSystem(spawnShape){
+	this.particles = [];
+	this.spawnShape = spawnShape;
+	this.spawnProbability = 1;
+	this.spawnNewParticle = function(){
+		var p = new Particle();
+		p.position = new Vector(
+			Math.random()*canvasObj.width,
+			Math.random()*canvasObj.height
+		);
+		p.rotationSpeed=0.1+Math.random()*0.1;
+		if(Math.random()<0.5)p.rotationSpeed *= -1;
+		var scale = Math.random()*0.3 + 0.1;
+		p.scale = new Vector(scale,scale);
+		p.life = 25;
+		p.image = particleSprites[2];
+		p.gravity = new Vector(0,0.1);
+		this.particles.push(p);
+	}
+	this.update = function(){
+		var prob = this.spawnProbability;
+		while(prob > 1){
+			this.spawnNewParticle();	
+			prob--;
 		}
-    }
+		if(Math.random() < prob){
+			this.spawnNewParticle();	
+		}
+	
+	    for(var i=0;i<this.particles.length;i++){
+			if(this.particles[i].update()){
+	            this.particles.splice(i, 1);
+	            i--;
+			}
+	    }
+	}
+	this.draw = function(){
+	    for(var i=0;i<this.particles.length;i++){
+			this.particles[i].draw();
+	    }
+	}
+}
+
+var particles;
+function start(){
+	particles = new ParticleSystem(null);
+}
+function loop(){
+	particles.update();
+	particles.draw();
 }
