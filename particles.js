@@ -99,16 +99,25 @@ function Particle(){
 	}
 }
 
-function ParticleSystem(spawnShape){
-	this.particles = [];
-	this.spawnShape = spawnShape;
-	this.spawnProbability = 1;
-	this.spawnNewParticle = function(){
-		var p = new Particle();
-		p.position = new Vector(
-			Math.random()*canvasObj.width,
-			Math.random()*canvasObj.height
+function RectangleShape(){
+	this.position = new Vector(0,0);
+	this.size = new Vector(0,0);
+	this.getPoint = function(){
+		return new Vector(
+			Math.random()*this.size.x + this.position.x,
+			Math.random()*this.size.y + this.position.y
 		);
+	}
+}
+
+function ParticleSystem(){
+	this.particles = [];
+	this.spawnShape = null;
+	this.spawnProbability = 16;
+	this.spawnNewParticle = function(){
+		if(!this.spawnShape)return;
+		var p = new Particle();
+		p.position = this.spawnShape.getPoint(); 
 		p.rotationSpeed=0.1+Math.random()*0.1;
 		if(Math.random()<0.5)p.rotationSpeed *= -1;
 		var scale = Math.random()*0.3 + 0.1;
@@ -143,9 +152,17 @@ function ParticleSystem(spawnShape){
 }
 
 var particles;
+var shape;
 function start(){
-	particles = new ParticleSystem(null);
+	shape = new RectangleShape();
+	shape.position.x = 0;
+	shape.position.y = 0;
+	shape.size.x = canvasObj.width;
+	shape.size.y = canvasObj.height;
+	particles = new ParticleSystem();
+	particles.spawnShape = shape;
 }
+
 function loop(){
 	particles.update();
 	particles.draw();
