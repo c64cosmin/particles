@@ -198,6 +198,8 @@ function start(){
 	particles.spawnShape = shape;
 	particles.image = particleSprites[0];
 	particles.life = 50;
+	particles.rotationRandom=360;
+	particles.spawnProbability=10;
 }
 
 function loop(){
@@ -226,4 +228,104 @@ function onClickVariables(){
 	particles.dampingRandom = parseFloat(document.getElementById("dampingRandom").value);
 	particles.life = parseFloat(document.getElementById("life").value);
 	particles.lifeRandom = parseFloat(document.getElementById("lifeRandom").value);
+}
+
+function setParam(name, value){
+	document.getElementById(name).value = value;
+}
+
+function ex0(){
+	setParam("image", 0);
+	setParam("spawnProbability", 0.5);
+	setParam("direction", 0);
+	setParam("directionRandom", 360);
+	setParam("speed", 0.5);
+	setParam("speedRandom", 0.5);
+	setParam("scale", 0.5);
+	setParam("scaleRandom", 0.3);
+	setParam("scaleSpeed", -0.04);
+	setParam("scaleSpeedRandom", 0);
+	setParam("gravityX", 0);
+	setParam("gravityY", 0);
+	setParam("rotation", 0);
+	setParam("rotationRandom", 360);
+	setParam("rotationSpeed", 0);
+	setParam("rotationSpeedRandom", 1);
+	setParam("damping", 1);
+	setParam("dampingRandom", 0);
+	setParam("life", 20);
+	setParam("lifeRandom", 10);
+	onClickVariables();
+}
+
+function ex1(){
+	setParam("image", 1);
+	setParam("spawnProbability", 0.1);
+	setParam("direction", 0);
+	setParam("directionRandom", 360);
+	setParam("speed", 3.5);
+	setParam("speedRandom", 0.5);
+	setParam("scale", 0.5);
+	setParam("scaleRandom", 0.3);
+	setParam("scaleSpeed", 0.04);
+	setParam("scaleSpeedRandom", 0.01);
+	setParam("gravityX", 0);
+	setParam("gravityY", 0);
+	setParam("rotation", 0);
+	setParam("rotationRandom", 360);
+	setParam("rotationSpeed", 0);
+	setParam("rotationSpeedRandom", 0.01);
+	setParam("damping", 0.95);
+	setParam("dampingRandom", 0);
+	setParam("life", 30);
+	setParam("lifeRandom", 10);
+	onClickVariables();
+}
+
+function ex2(){
+	setParam("image", 2);
+	setParam("spawnProbability", 1);
+	setParam("direction", 0);
+	setParam("directionRandom", 360);
+	setParam("speed", 6.5);
+	setParam("speedRandom", 3.5);
+	setParam("scale", 0.5);
+	setParam("scaleRandom", 0.3);
+	setParam("scaleSpeed", 0.01);
+	setParam("scaleSpeedRandom", 0.005);
+	setParam("gravityX", 0);
+	setParam("gravityY", 0.2);
+	setParam("rotation", 0);
+	setParam("rotationRandom", 360);
+	setParam("rotationSpeed", 0);
+	setParam("rotationSpeedRandom", 0.1);
+	setParam("damping", 0.95);
+	setParam("dampingRandom", 0);
+	setParam("life", 20);
+	setParam("lifeRandom", 10);
+	onClickVariables();
+}
+
+function ex3(){
+	setParam("image", 3);
+	setParam("spawnProbability", 10);
+	setParam("direction", -90);
+	setParam("directionRandom", 20);
+	setParam("speed", 6.5);
+	setParam("speedRandom", 3.5);
+	setParam("scale", 0.5);
+	setParam("scaleRandom", 0.3);
+	setParam("scaleSpeed", 0.01);
+	setParam("scaleSpeedRandom", 0.005);
+	setParam("gravityX", 0);
+	setParam("gravityY", -0.2);
+	setParam("rotation", 0);
+	setParam("rotationRandom", 360);
+	setParam("rotationSpeed", 0);
+	setParam("rotationSpeedRandom", 0.1);
+	setParam("damping", 0.95);
+	setParam("dampingRandom", 0);
+	setParam("life", 40);
+	setParam("lifeRandom", 10);
+	onClickVariables();
 }
