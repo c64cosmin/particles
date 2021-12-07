@@ -105,6 +105,8 @@ function Particle(){
 	this.damping = 1;
 	this.life = 0;
 	this.image = null;
+	this.shrink = 0;
+	this.fadeShrink = false;
 	this.update = function(){
 		this.speed.add(this.gravity);
 		this.position.add(this.speed);
@@ -113,7 +115,13 @@ function Particle(){
 		this.scale.add(new Vector(this.scaleSpeed,this.scaleSpeed));
 		if(this.scale.x < 0 || this.scale.y < 0)return true;
 		this.life--;
-		if(this.life < 0)return true;
+		if(this.life < 0){
+			if(this.fadeShrink){
+				this.scaleSpeed = -0.1;
+			}else{
+				return true;
+			}
+		}
 		return false;
 	}
 	this.draw = function(){
@@ -165,6 +173,7 @@ function ParticleSystem(){
 	this.dampingRandom = 0;
 	this.life = 1;
 	this.lifeRandom = 0;
+	this.fadeShrink = false;
 	this.spawnNewParticle = function(){
 		if(!this.spawnShape)return;
 		var p = new Particle();
@@ -188,6 +197,7 @@ function ParticleSystem(){
 		if(p.damping < 0)this.damping = 0;
 		p.life = this.life + randomRange(this.lifeRandom);
 		p.image = this.image;
+		p.fadeShrink = this.fadeShrink;
 		this.particles.push(p);
 	}
 	this.update = function(){
@@ -405,12 +415,13 @@ function ex5(){
 	spawner(1);
 }
 function ex6(){
+	particles.fadeShrink=true;
 	canvasObj.width=1920;
 	canvasObj.height=1080;
 	setParam("image", 5);
-	setParam("spawnProbability", 20);
+	setParam("spawnProbability", 7);
 	setParam("direction", 270);
-	setParam("directionRandom", 40);
+	setParam("directionRandom", 20);
 	setParam("speed", 80);
 	setParam("speedRandom", 50);
 	setParam("scale", 100);
@@ -425,7 +436,7 @@ function ex6(){
 	setParam("rotationSpeedRandom", 1);
 	setParam("damping", 100);
 	setParam("dampingRandom", 0);
-	setParam("life", 1800);
+	setParam("life", 3000);
 	setParam("lifeRandom", 0);
 	video = null;
 	controls.style.visibility="hidden";
@@ -433,6 +444,7 @@ function ex6(){
 	player.style.margin="0px";
 	player.style.border="0px";
 	player.style.overflow="hidden";
+    document.body.style.overflow="hidden";
 	onClickVariables();
 	setBackground(20,30,60);
 	spawner(7);

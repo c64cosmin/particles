@@ -1,6 +1,5 @@
 body {
   font-family: Verdana, sans-serif;
-  overflow:hidden;
 }
 label {
 	margin-top: 5px;
@@ -38,9 +37,11 @@ label {
     border : 0px;
     padding : 0px;
     margin : 0px;
+	width: 30px;
+	height:30px;
 }
 .preset {
-    width : 100px;
+    width : 80px;
     height : 40px;
     padding : 5px;
     margin: 5px;
