@@ -1,3 +1,5 @@
+function angle2radian(angle){return angle*Math.PI/180.0;}
+function randomRange(magnitude){return (Math.random()*2-1)*magnitude;}
 var canvas, canvasObj;
 var imagesLoader;
 var particleSprites = [];
@@ -74,17 +76,20 @@ function Particle(){
 	this.rotationSpeed = 0;
 	this.damping = 1;
 	this.life = 0;
+	this.image = null;
 	this.update = function(){
 		this.speed.add(this.gravity);
 		this.position.add(this.speed);
 		this.speed.mulScalar(this.damping);
 		this.rotation += this.rotationSpeed;
 		this.scale.add(new Vector(this.scaleSpeed,this.scaleSpeed));
+		if(this.scale.x < 0 || this.scale.y < 0)return true;
 		this.life--;
 		if(this.life < 0)return true;
 		return false;
 	}
 	this.draw = function(){
+		if(!this.image)return;
 		canvas.setTransform(
 			this.scale.x, 0,
 			0, this.scale.y,
@@ -112,19 +117,49 @@ function RectangleShape(){
 
 function ParticleSystem(){
 	this.particles = [];
+	this.image = null;
 	this.spawnShape = null;
-	this.spawnProbability = 16;
+	this.spawnProbability = 1;
+	this.direction = 0; 
+	this.directionRandom = 0;
+	this.speed = 0;
+	this.speedRandom = 0;
+	this.scale = 1;
+	this.scaleRandom = 0;
+	this.scaleSpeed = 0;
+	this.scaleSpeedRandom = 0;
+	this.gravity = new Vector(0,0);
+	this.rotation = 0;
+	this.rotationRandom = 0;
+	this.rotationSpeed = 0;
+	this.rotationSpeedRandom = 0;
+	this.damping = 0;
+	this.dampingRandom = 0;
+	this.life = 0;
+	this.lifeRandom = 0;
 	this.spawnNewParticle = function(){
 		if(!this.spawnShape)return;
 		var p = new Particle();
+
 		p.position = this.spawnShape.getPoint(); 
-		p.rotationSpeed=0.1+Math.random()*0.1;
-		if(Math.random()<0.5)p.rotationSpeed *= -1;
-		var scale = Math.random()*0.3 + 0.1;
-		p.scale = new Vector(scale,scale);
-		p.life = 25;
-		p.image = particleSprites[2];
-		p.gravity = new Vector(0,0.1);
+
+		var angle = this.direction + randomRange(this.directionRandom);
+		var speed = this.speed + randomRange(this.speedRandom);
+		p.speed = new Vector(
+			Math.cos(angle2radian(angle))*speed,
+			Math.sin(angle2radian(angle))*speed
+		);
+
+		var scaleVariation = randomRange(this.scaleRandom);
+		p.scale = new Vector(this.scale + scaleVariation, this.scale + scaleVariation);
+		p.scaleSpeed = this.scaleSpeed + randomRange(this.scaleSpeedRandom);
+		p.gravity = this.gravity;
+		p.rotation = this.rotation + randomRange(this.rotationRandom);
+		p.rotationSpeed = this.rotationSpeed + randomRange(this.rotationSpeedRandom);
+		p.damping = this.damping + randomRange(this.dampingRandom);
+		if(p.damping < 0)this.damping = 0;
+		p.life = this.life + randomRange(this.lifeRandom);
+		p.image = this.image;
 		this.particles.push(p);
 	}
 	this.update = function(){
@@ -161,6 +196,9 @@ function start(){
 	shape.size.y = canvasObj.height;
 	particles = new ParticleSystem();
 	particles.spawnShape = shape;
+	particles.image = particleSprites[1];
+	particles.life = 50;
+	particles.lifeRandom = 30; 
 }
 
 function loop(){
