@@ -45,6 +45,7 @@ function init(){
 	particleSprites.push(loadImage("particles/particles3.png"));
 	particleSprites.push(loadImage("particles/particles4.png"));
 	particleSprites.push(loadImage("particles/particles5.png"));
+	particleSprites.push(loadImage("particles/particles6.png"));
 	video = loadVideo("media/video.mp4"); 
 	controls = document.getElementById("controls");
 	player = document.getElementById("player");
@@ -315,26 +316,26 @@ function ex0(){
 }
 
 function ex1(){
-	setParam("image", 1);
+	setParam("image", 6);
 	setParam("spawnProbability", 10);
 	setParam("direction", 0);
-	setParam("directionRandom", 360);
-	setParam("speed", 350);
-	setParam("speedRandom", 50);
+	setParam("directionRandom", 0);
+	setParam("speed", 0);
+	setParam("speedRandom", 0);
 	setParam("scale", 50);
 	setParam("scaleRandom", 30);
-	setParam("scaleSpeed", 40);
-	setParam("scaleSpeedRandom", 1);
+	setParam("scaleSpeed", 0);
+	setParam("scaleSpeedRandom", 0);
 	setParam("gravityX", 0);
 	setParam("gravityY", 0);
 	setParam("rotation", 0);
 	setParam("rotationRandom", 360);
 	setParam("rotationSpeed", 0);
-	setParam("rotationSpeedRandom", 1);
-	setParam("damping", 95);
+	setParam("rotationSpeedRandom", 0);
+	setParam("damping", 0);
 	setParam("dampingRandom", 0);
-	setParam("life", 30);
-	setParam("lifeRandom", 10);
+	setParam("life", 10);
+	setParam("lifeRandom", 0);
 	onClickVariables();
 	spawner(4);
 }
