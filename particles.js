@@ -323,7 +323,7 @@ function ex1(){
 	setParam("speed", 0);
 	setParam("speedRandom", 0);
 	setParam("scale", 50);
-	setParam("scaleRandom", 30);
+	setParam("scaleRandom", 10);
 	setParam("scaleSpeed", 0);
 	setParam("scaleSpeedRandom", 0);
 	setParam("gravityX", 0);
