@@ -40,11 +40,11 @@
 		<script src="particles.js"></script>
 		<div id="controls">
 			<label for="image">image</label>
-			<input onchange="onClickVariables()" type="range" id="image" value="2" min="0" max="3">
+			<input onchange="onClickVariables()" type="range" id="image" value="2" min="0" max="4">
 			<br>
 
 			<label for="spawnProbability">spawnProbability</label>
-			<input onchange="onClickVariables()" type="range" id="spawnProbability" value="1" min="0" max="10000">
+			<input onchange="onClickVariables()" type="number" id="spawnProbability" value="1" min="0" max="10000">
 			<br>
 
 			<label for="direction">direction</label>
@@ -75,7 +75,7 @@
 			<input onchange="onClickVariables()" type="range" id="scaleSpeed" value="1" min="-100" max="100">
 			<br>
 
-			<label for="scaleSpeedRandom">scaleSpeedRandom</label>
+			label for="scaleSpeedRandom">scaleSpeedRandom</label>
 			<input onchange="onClickVariables()" type="range" id="scaleSpeedRandom" value="0" min="-100" max="100">
 			<br>
 
@@ -139,6 +139,7 @@
 			<button onclick="ex1()">Example 1</button>
 			<button onclick="ex2()">Example 2</button>
 			<button onclick="ex3()">Example 3</button>
+			<button onclick="ex4()">Example 4</button>
 		</div>
 	</body>
 </html>
