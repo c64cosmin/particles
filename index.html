@@ -7,38 +7,7 @@
 		<meta http-equiv="expires" content="0">
 		<title>Particles</title>
 		<link rel="icon" href="data:,">
-		<style>
-	      #player {
-	        position: absolute;
-	        left: 0px;
-	        top: 0px;
-	        float: left;
-	        border : 1px solid #444444;
-	        padding: 10px;
-	        margin: 10px;
-	        background: #3B3B3B;
-	      }
-	      #controls {
-	      	position: absolute;
-	        left: 500px;
-	        top: 10px;
-	        float: left;
-	        border : 1px solid #444444;
-	        padding: 10px;
-	        margin: 10px;
-	        /*background: #3B3B3B;*/
-	      }
-		  .arrow {
-			  border : 0px;
-			  padding : 0px;
-			  margin : 0px;
-		  }
-		  button {
-			  border : 0px;
-			  padding : 0px;
-			  margin : 0px;
-		  }
-    	</style>
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<meta name="viewport" content="user-scalable=no"/>
 	<body id="body" onload="init()">
@@ -50,83 +19,83 @@
 		<script src="particles.js"></script>
 		<div id="controls">
 			<label for="image">image</label>
-			<input onchange="onClickVariables()" type="range" id="image" value="2" min="0" max="4">
+			<input onchange="onClickVariables()" type="range" class="slider" id="image" value="2" min="0" max="4">
 			<br>
 
 			<label for="spawnProbability">spawnProbability</label>
-			<input onchange="onClickVariables()" type="number" id="spawnProbability" value="1" min="0" max="10000">
+			<input onchange="onClickVariables()" type="number" id="spawnProbability" value="1" min="0" max="10000" style="margin-left:150px">
 			<br>
 
 			<label for="direction">direction</label>
-			<input onchange="onClickVariables()" type="range" id="direction" value="0" min="0" max="360">
+			<input onchange="onClickVariables()" type="range" class="slider" id="direction" value="0" min="0" max="360">
 			<br>
 
 			<label for="directionRandom">directionRandom</label>
-			<input onchange="onClickVariables()" type="range" id="directionRandom" value="0" min="0" max="360">
+			<input onchange="onClickVariables()" type="range" class="slider" id="directionRandom" value="0" min="0" max="360">
 			<br>
 
 			<label for="speed">speed</label>
-			<input onchange="onClickVariables()" type="range" id="speed" value="0" min="0" max="1000">
+			<input onchange="onClickVariables()" type="range" class="slider" id="speed" value="0" min="0" max="1000">
 			<br>
 
 			<label for="speedRandom">speedRandom</label>
-			<input onchange="onClickVariables()" type="range" id="speedRandom" value="0" min="0" max="1000">
+			<input onchange="onClickVariables()" type="range" class="slider" id="speedRandom" value="0" min="0" max="1000">
 			<br>
 
 			<label for="scale">scale</label>
-			<input onchange="onClickVariables()" type="range" id="scale" value="100" min="0" max="1000">
+			<input onchange="onClickVariables()" type="range" class="slider" id="scale" value="100" min="0" max="1000">
 			<br>
 
 			<label for="scaleRandom">scaleRandom</label>
-			<input onchange="onClickVariables()" type="range" id="scaleRandom" value="50" min="0" max="1000">
+			<input onchange="onClickVariables()" type="range" class="slider" id="scaleRandom" value="50" min="0" max="1000">
 			<br>
 
 			<label for="scaleSpeed">scaleSpeed</label>
-			<input onchange="onClickVariables()" type="range" id="scaleSpeed" value="1" min="-100" max="100">
+			<input onchange="onClickVariables()" type="range" class="slider" id="scaleSpeed" value="1" min="-100" max="100">
 			<br>
 
 			<label for="scaleSpeedRandom">scaleSpeedRandom</label>
-			<input onchange="onClickVariables()" type="range" id="scaleSpeedRandom" value="0" min="-100" max="100">
+			<input onchange="onClickVariables()" type="range" class="slider" id="scaleSpeedRandom" value="0" min="-100" max="100">
 			<br>
 
 			<label for="gravityX">gravity X</label>
-			<input onchange="onClickVariables()" type="range" id="gravityX" value="0" min="-100" max="100">
+			<input onchange="onClickVariables()" type="range" class="slider" id="gravityX" value="0" min="-100" max="100">
 			<br>
 
 			<label for="gravityY">gravity Y</label>
-			<input onchange="onClickVariables()" type="range" id="gravityY" value="0" min="-100" max="100">
+			<input onchange="onClickVariables()" type="range" class="slider" id="gravityY" value="0" min="-100" max="100">
 			<br>
 
 			<label for="rotation">rotation</label>
-			<input onchange="onClickVariables()" type="range" id="rotation" value="45" min="0" max="360">
+			<input onchange="onClickVariables()" type="range" class="slider" id="rotation" value="45" min="0" max="360">
 			<br>
 
 			<label for="rotationRandom">rotationRandom</label>
-			<input onchange="onClickVariables()" type="range" id="rotationRandom" value="180" min="0" max="360">
+			<input onchange="onClickVariables()" type="range" class="slider" id="rotationRandom" value="180" min="0" max="360">
 			<br>
 
 			<label for="rotationSpeed">rotationSpeed</label>
-			<input onchange="onClickVariables()" type="range" id="rotationSpeed" value="10" min="0" max="1000">
+			<input onchange="onClickVariables()" type="range" class="slider" id="rotationSpeed" value="10" min="0" max="1000">
 			<br>
 
 			<label for="rotationSpeedRandom">rotationSpeedRandom</label>
-			<input onchange="onClickVariables()" type="range" id="rotationSpeedRandom" value="20" min="0" max="1000">
+			<input onchange="onClickVariables()" type="range" class="slider" id="rotationSpeedRandom" value="20" min="0" max="1000">
 			<br>
 
 			<label for="damping">damping</label>
-			<input onchange="onClickVariables()" type="range" id="damping" value="100" min="90" max="110">
+			<input onchange="onClickVariables()" type="range" class="slider" id="damping" value="100" min="90" max="110">
 			<br>
 
 			<label for="dampingRandom">dampingRandom</label>
-			<input onchange="onClickVariables()" type="range" id="dampingRandom" value="0" min="0" max="100">
+			<input onchange="onClickVariables()" type="range" class="slider" id="dampingRandom" value="0" min="0" max="100">
 			<br>
 
 			<label for="life">life</label>
-			<input onchange="onClickVariables()" type="range" id="life" value="40" min="0" max="1000">
+			<input onchange="onClickVariables()" type="range" class="slider" id="life" value="40" min="0" max="1000">
 			<br>
 
 			<label for="lifeRandom">lifeRandom</label>
-			<input onchange="onClickVariables()" type="range" id="lifeRandom" value="20" min="0" max="100">
+			<input onchange="onClickVariables()" type="range" class="slider" id="lifeRandom" value="20" min="0" max="100">
 			<br>
 			<br>
 
@@ -145,13 +114,13 @@
 				<br>
 			</div>
 
-			<button onclick="ex0()">Preset 0</button>
-			<button onclick="ex1()">Preset 1</button>
-			<button onclick="ex2()">Preset 2</button>
+			<button class="preset" onclick="ex0()">Preset 0</button>
+			<button class="preset" onclick="ex1()">Preset 1</button>
+			<button class="preset" onclick="ex2()">Preset 2</button>
 			<br>
-			<button onclick="ex3()">Preset 3</button>
-			<button onclick="ex4()">Preset 4</button>
-			<button onclick="ex5()">Preset 5</button>
+			<button class="preset" onclick="ex3()">Preset 3</button>
+			<button class="preset" onclick="ex4()">Preset 4</button>
+			<button class="preset" onclick="ex5()">Preset 5</button>
 		</div>
 	</body>
 </html>

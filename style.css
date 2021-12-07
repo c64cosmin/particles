@@ -1,0 +1,81 @@
+body {
+  font-family: Verdana, sans-serif;
+}
+label {
+	margin-top: 5px;
+	margin-left: 5px;
+    position: absolute;
+}
+#player {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  float: left;
+  border : 1px solid #444444;
+  padding: 10px;
+  margin: 10px;
+  background: #3B3B3B;
+}
+#controls {
+	position: absolute;
+  left: 500px;
+  top: 10px;
+  float: left;
+  border : 1px solid #444444;
+  padding: 10px;
+  margin: 10px;
+  /*background: #3B3B3B;*/
+}
+.arrow {
+    border : 0px;
+    padding : 0px;
+    margin : 0px;
+}
+.preset {
+    width : 100px;
+    height : 40px;
+    padding : 5px;
+    margin: 5px;
+}
+button {
+    border : 0px;
+    padding : 0px;
+    margin : 0px;
+}
+button:hover {
+    background-color:#dddddd;
+}
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
