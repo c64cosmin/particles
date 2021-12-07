@@ -14,6 +14,23 @@ function openFullscreen() {
   } else if (elem.msRequestFullscreen) { /* IE11 */
     elem.msRequestFullscreen();
   }
+	elem.addEventListener('fullscreenchange', (event) => {
+		if(!document.fullscreenElement){
+			restore();
+		}
+});
+}
+function restore(){
+	canvasObj.width=360;
+	canvasObj.height=640;
+	video = loadVideo("media/video.mp4"); 
+	controls.style.visibility="";
+	player.style.padding="10px";
+	player.style.margin="10px";
+	player.style.border="1px solid #444444";
+    document.body.style.overflow="";
+	setBackground(0,0,0);
+	ex0();
 }
 function init(){
 	resourceLoader = document.getElementById('resources');
@@ -294,6 +311,7 @@ function ex0(){
 	setParam("life", 20);
 	setParam("lifeRandom", 10);
 	onClickVariables();
+	spawner(4);
 }
 
 function ex1(){
@@ -318,6 +336,7 @@ function ex1(){
 	setParam("life", 30);
 	setParam("lifeRandom", 10);
 	onClickVariables();
+	spawner(4);
 }
 
 function ex2(){
@@ -342,6 +361,7 @@ function ex2(){
 	setParam("life", 20);
 	setParam("lifeRandom", 10);
 	onClickVariables();
+	spawner(4);
 }
 
 function ex3(){
@@ -366,6 +386,7 @@ function ex3(){
 	setParam("life", 40);
 	setParam("lifeRandom", 10);
 	onClickVariables();
+	spawner(4);
 }
 function ex4(){
 	setParam("image", 0);
@@ -389,6 +410,7 @@ function ex4(){
 	setParam("life", 50);
 	setParam("lifeRandom", 10);
 	onClickVariables();
+	spawner(4);
 }
 function ex5(){
 	setParam("image", 4);
@@ -443,7 +465,6 @@ function ex6(){
 	player.style.padding="0px";
 	player.style.margin="0px";
 	player.style.border="0px";
-	player.style.overflow="hidden";
     document.body.style.overflow="hidden";
 	onClickVariables();
 	setBackground(20,30,60);
