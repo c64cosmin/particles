@@ -341,3 +341,28 @@ function ex3(){
 	setParam("lifeRandom", 10);
 	onClickVariables();
 }
+
+function spawner(p){
+	var x = p%3;
+	var y = Math.floor(p/3);
+	if(x==0 || x==2){
+		shape.size.x = 0;
+	}else{
+		shape.size.x = canvasObj.width;
+	}
+	if(y==0 || y==2){
+		shape.size.y = 0;
+	}else{
+		shape.size.y = canvasObj.height;
+	}
+	if(x==2){
+		shape.position.x=canvasObj.width;
+	}else{
+		shape.position.x=0;
+	}
+	if(y==2){
+		shape.position.y=canvasObj.height;
+	}else{
+		shape.position.y = 0;
+	}
+}
