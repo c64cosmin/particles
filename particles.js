@@ -135,7 +135,7 @@ function ParticleSystem(){
 	this.rotationSpeedRandom = 0;
 	this.damping = 0;
 	this.dampingRandom = 0;
-	this.life = 0;
+	this.life = 1;
 	this.lifeRandom = 0;
 	this.spawnNewParticle = function(){
 		if(!this.spawnShape)return;
@@ -164,11 +164,11 @@ function ParticleSystem(){
 	}
 	this.update = function(){
 		var prob = this.spawnProbability;
-		while(prob > 1){
+		while(prob >= 1){
 			this.spawnNewParticle();	
-			prob--;
+			prob-=1;
 		}
-		if(Math.random() < prob){
+		if(prob > 0 && Math.random() < prob){
 			this.spawnNewParticle();	
 		}
 	
@@ -196,12 +196,34 @@ function start(){
 	shape.size.y = canvasObj.height;
 	particles = new ParticleSystem();
 	particles.spawnShape = shape;
-	particles.image = particleSprites[1];
+	particles.image = particleSprites[0];
 	particles.life = 50;
-	particles.lifeRandom = 30; 
 }
 
 function loop(){
 	particles.update();
 	particles.draw();
+}
+
+function onClickVariables(){
+	particles.image = particleSprites[parseFloat(document.getElementById("image").value)];
+	particles.spawnProbability = parseFloat(document.getElementById("spawnProbability").value);
+	particles.direction = parseFloat(document.getElementById("direction").value);
+	particles.directionRandom = parseFloat(document.getElementById("directionRandom").value);
+	particles.speed = parseFloat(document.getElementById("speed").value);
+	particles.speedRandom = parseFloat(document.getElementById("speedRandom").value);
+	particles.scale = parseFloat(document.getElementById("scale").value);
+	particles.scaleRandom = parseFloat(document.getElementById("scaleRandom").value);
+	particles.scaleSpeed = parseFloat(document.getElementById("scaleSpeed").value);
+	particles.scaleSpeedRandom = parseFloat(document.getElementById("scaleSpeedRandom").value);
+	particles.gravity.x = parseFloat(document.getElementById("gravityX").value);
+	particles.gravity.y = parseFloat(document.getElementById("gravityY").value);
+	particles.rotation = parseFloat(document.getElementById("rotation").value);
+	particles.rotationRandom = parseFloat(document.getElementById("rotationRandom").value);
+	particles.rotationSpeed = parseFloat(document.getElementById("rotationSpeed").value);
+	particles.rotationSpeedRandom = parseFloat(document.getElementById("rotationSpeedRandom").value);
+	particles.damping = parseFloat(document.getElementById("damping").value);
+	particles.dampingRandom = parseFloat(document.getElementById("dampingRandom").value);
+	particles.life = parseFloat(document.getElementById("life").value);
+	particles.lifeRandom = parseFloat(document.getElementById("lifeRandom").value);
 }
