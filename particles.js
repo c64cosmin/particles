@@ -2,7 +2,19 @@ function angle2radian(angle){return angle*Math.PI/180.0;}
 function randomRange(magnitude){return (Math.random()*2-1)*magnitude;}
 var canvas, canvasObj;
 var resourceLoader;
+var video;
+var controls;
 var particleSprites = [];
+function openFullscreen() {
+  var elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
 function init(){
 	resourceLoader = document.getElementById('resources');
     resourceLoader.style.visibility="hidden";
@@ -15,7 +27,11 @@ function init(){
 	particleSprites.push(loadImage("particles/particles2.png"));
 	particleSprites.push(loadImage("particles/particles3.png"));
 	particleSprites.push(loadImage("particles/particles4.png"));
+	particleSprites.push(loadImage("particles/particles5.png"));
 	video = loadVideo("media/video.mp4"); 
+	controls = document.getElementById("controls");
+	player = document.getElementById("player");
+	setBackground(0,0,0);
 	start();
     loopDraw();
 }
@@ -46,10 +62,9 @@ function setBackground(r, g, b){
 }
 
 function loopDraw(){
-	setBackground(0,0,0);
 	canvas.setTransform(1,0,0,1,0,0);
     canvas.clearRect(0,0,canvasObj.width, canvasObj.height);
-    canvas.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+    if(video)canvas.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
     loop();
     requestAnimation(loopDraw);
 }
@@ -388,6 +403,40 @@ function ex5(){
 	setParam("lifeRandom", 0);
 	onClickVariables();
 	spawner(1);
+}
+function ex6(){
+	canvasObj.width=1920;
+	canvasObj.height=1080;
+	setParam("image", 5);
+	setParam("spawnProbability", 20);
+	setParam("direction", 270);
+	setParam("directionRandom", 40);
+	setParam("speed", 80);
+	setParam("speedRandom", 50);
+	setParam("scale", 100);
+	setParam("scaleRandom", 70);
+	setParam("scaleSpeed", 1);
+	setParam("scaleSpeedRandom", 0);
+	setParam("gravityX", 0);
+	setParam("gravityY", -0.1);
+	setParam("rotation", 0);
+	setParam("rotationRandom", 360);
+	setParam("rotationSpeed", 0);
+	setParam("rotationSpeedRandom", 1);
+	setParam("damping", 100);
+	setParam("dampingRandom", 0);
+	setParam("life", 1800);
+	setParam("lifeRandom", 0);
+	video = null;
+	controls.style.visibility="hidden";
+	player.style.padding="0px";
+	player.style.margin="0px";
+	player.style.border="0px";
+	player.style.overflow="hidden";
+	onClickVariables();
+	setBackground(20,30,60);
+	spawner(7);
+	openFullscreen();
 }
 
 function spawner(p){
