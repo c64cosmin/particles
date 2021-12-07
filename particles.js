@@ -30,7 +30,7 @@ function restore(){
 	player.style.border="1px solid #444444";
     document.body.style.overflow="";
 	setBackground(0,0,0);
-	ex0();
+	particles.fadeShrink=false;
 }
 function init(){
 	resourceLoader = document.getElementById('resources');
@@ -437,7 +437,6 @@ function ex5(){
 	spawner(1);
 }
 function ex6(){
-	particles.fadeShrink=true;
 	canvasObj.width=1920;
 	canvasObj.height=1080;
 	setParam("image", 5);
@@ -460,6 +459,7 @@ function ex6(){
 	setParam("dampingRandom", 0);
 	setParam("life", 3000);
 	setParam("lifeRandom", 0);
+	particles.fadeShrink=true;
 	video = null;
 	controls.style.visibility="hidden";
 	player.style.padding="0px";
