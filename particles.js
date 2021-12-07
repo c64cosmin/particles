@@ -221,23 +221,23 @@ function loop(){
 
 function onClickVariables(){
 	particles.image = particleSprites[parseFloat(document.getElementById("image").value)];
-	particles.spawnProbability = parseFloat(document.getElementById("spawnProbability").value);
+	particles.spawnProbability = parseFloat(document.getElementById("spawnProbability").value*0.01);
 	particles.direction = parseFloat(document.getElementById("direction").value);
 	particles.directionRandom = parseFloat(document.getElementById("directionRandom").value);
-	particles.speed = parseFloat(document.getElementById("speed").value);
-	particles.speedRandom = parseFloat(document.getElementById("speedRandom").value);
-	particles.scale = parseFloat(document.getElementById("scale").value);
-	particles.scaleRandom = parseFloat(document.getElementById("scaleRandom").value);
-	particles.scaleSpeed = parseFloat(document.getElementById("scaleSpeed").value);
-	particles.scaleSpeedRandom = parseFloat(document.getElementById("scaleSpeedRandom").value);
-	particles.gravity.x = parseFloat(document.getElementById("gravityX").value);
-	particles.gravity.y = parseFloat(document.getElementById("gravityY").value);
+	particles.speed = parseFloat(document.getElementById("speed").value*0.01);
+	particles.speedRandom = parseFloat(document.getElementById("speedRandom").value*0.01);
+	particles.scale = parseFloat(document.getElementById("scale").value*0.01);
+	particles.scaleRandom = parseFloat(document.getElementById("scaleRandom").value*0.01);
+	particles.scaleSpeed = parseFloat(document.getElementById("scaleSpeed").value*0.01);
+	particles.scaleSpeedRandom = parseFloat(document.getElementById("scaleSpeedRandom").value*0.01);
+	particles.gravity.x = parseFloat(document.getElementById("gravityX").value*0.01);
+	particles.gravity.y = parseFloat(document.getElementById("gravityY").value*0.01);
 	particles.rotation = parseFloat(document.getElementById("rotation").value);
 	particles.rotationRandom = parseFloat(document.getElementById("rotationRandom").value);
-	particles.rotationSpeed = parseFloat(document.getElementById("rotationSpeed").value);
-	particles.rotationSpeedRandom = parseFloat(document.getElementById("rotationSpeedRandom").value);
-	particles.damping = parseFloat(document.getElementById("damping").value);
-	particles.dampingRandom = parseFloat(document.getElementById("dampingRandom").value);
+	particles.rotationSpeed = parseFloat(document.getElementById("rotationSpeed").value*0.01);
+	particles.rotationSpeedRandom = parseFloat(document.getElementById("rotationSpeedRandom").value*0.01);
+	particles.damping = parseFloat(document.getElementById("damping").value*0.01);
+	particles.dampingRandom = parseFloat(document.getElementById("dampingRandom").value*0.01);
 	particles.life = parseFloat(document.getElementById("life").value);
 	particles.lifeRandom = parseFloat(document.getElementById("lifeRandom").value);
 }
@@ -248,22 +248,22 @@ function setParam(name, value){
 
 function ex0(){
 	setParam("image", 0);
-	setParam("spawnProbability", 0.5);
+	setParam("spawnProbability", 50);
 	setParam("direction", 0);
 	setParam("directionRandom", 360);
-	setParam("speed", 0.5);
-	setParam("speedRandom", 0.5);
-	setParam("scale", 0.5);
-	setParam("scaleRandom", 0.3);
-	setParam("scaleSpeed", -0.04);
+	setParam("speed", 50);
+	setParam("speedRandom", 50);
+	setParam("scale", 50);
+	setParam("scaleRandom", 30);
+	setParam("scaleSpeed", -4);
 	setParam("scaleSpeedRandom", 0);
 	setParam("gravityX", 0);
 	setParam("gravityY", 0);
 	setParam("rotation", 0);
 	setParam("rotationRandom", 360);
 	setParam("rotationSpeed", 0);
-	setParam("rotationSpeedRandom", 1);
-	setParam("damping", 1);
+	setParam("rotationSpeedRandom", 10);
+	setParam("damping", 100);
 	setParam("dampingRandom", 0);
 	setParam("life", 20);
 	setParam("lifeRandom", 10);
@@ -272,22 +272,22 @@ function ex0(){
 
 function ex1(){
 	setParam("image", 1);
-	setParam("spawnProbability", 0.1);
+	setParam("spawnProbability", 10);
 	setParam("direction", 0);
 	setParam("directionRandom", 360);
-	setParam("speed", 3.5);
-	setParam("speedRandom", 0.5);
-	setParam("scale", 0.5);
-	setParam("scaleRandom", 0.3);
-	setParam("scaleSpeed", 0.04);
-	setParam("scaleSpeedRandom", 0.01);
+	setParam("speed", 350);
+	setParam("speedRandom", 50);
+	setParam("scale", 50);
+	setParam("scaleRandom", 30);
+	setParam("scaleSpeed", 4);
+	setParam("scaleSpeedRandom", 1);
 	setParam("gravityX", 0);
 	setParam("gravityY", 0);
 	setParam("rotation", 0);
 	setParam("rotationRandom", 360);
 	setParam("rotationSpeed", 0);
-	setParam("rotationSpeedRandom", 0.01);
-	setParam("damping", 0.95);
+	setParam("rotationSpeedRandom", 1);
+	setParam("damping", 95);
 	setParam("dampingRandom", 0);
 	setParam("life", 30);
 	setParam("lifeRandom", 10);
@@ -296,22 +296,22 @@ function ex1(){
 
 function ex2(){
 	setParam("image", 2);
-	setParam("spawnProbability", 1);
+	setParam("spawnProbability", 50);
 	setParam("direction", 0);
 	setParam("directionRandom", 360);
-	setParam("speed", 6.5);
-	setParam("speedRandom", 3.5);
-	setParam("scale", 0.5);
-	setParam("scaleRandom", 0.3);
-	setParam("scaleSpeed", 0.01);
-	setParam("scaleSpeedRandom", 0.005);
+	setParam("speed", 650);
+	setParam("speedRandom", 350);
+	setParam("scale", 50);
+	setParam("scaleRandom", 30);
+	setParam("scaleSpeed", 1);
+	setParam("scaleSpeedRandom", 1);
 	setParam("gravityX", 0);
-	setParam("gravityY", 0.2);
+	setParam("gravityY", 20);
 	setParam("rotation", 0);
 	setParam("rotationRandom", 360);
 	setParam("rotationSpeed", 0);
-	setParam("rotationSpeedRandom", 0.1);
-	setParam("damping", 0.95);
+	setParam("rotationSpeedRandom", 10);
+	setParam("damping", 95);
 	setParam("dampingRandom", 0);
 	setParam("life", 20);
 	setParam("lifeRandom", 10);
@@ -320,22 +320,22 @@ function ex2(){
 
 function ex3(){
 	setParam("image", 3);
-	setParam("spawnProbability", 10);
-	setParam("direction", -90);
+	setParam("spawnProbability", 1000);
+	setParam("direction", 270);
 	setParam("directionRandom", 20);
-	setParam("speed", 6.5);
-	setParam("speedRandom", 3.5);
-	setParam("scale", 0.5);
-	setParam("scaleRandom", 0.3);
-	setParam("scaleSpeed", 0.01);
-	setParam("scaleSpeedRandom", 0.005);
+	setParam("speed", 650);
+	setParam("speedRandom", 350);
+	setParam("scale", 50);
+	setParam("scaleRandom", 30);
+	setParam("scaleSpeed", 1);
+	setParam("scaleSpeedRandom", 1);
 	setParam("gravityX", 0);
-	setParam("gravityY", -0.2);
+	setParam("gravityY", -20);
 	setParam("rotation", 0);
 	setParam("rotationRandom", 360);
 	setParam("rotationSpeed", 0);
-	setParam("rotationSpeedRandom", 0.1);
-	setParam("damping", 0.95);
+	setParam("rotationSpeedRandom", 10);
+	setParam("damping", 95);
 	setParam("dampingRandom", 0);
 	setParam("life", 40);
 	setParam("lifeRandom", 10);

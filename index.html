@@ -40,89 +40,86 @@
 		<script src="particles.js"></script>
 		<div id="controls">
 			<label for="image">image</label>
-			<input type="number" id="image" value="2">
+			<input onchange="onClickVariables()" type="range" id="image" value="2" min="0" max="3">
 			<br>
 
 			<label for="spawnProbability">spawnProbability</label>
-			<input type="number" id="spawnProbability" value="1">
+			<input onchange="onClickVariables()" type="range" id="spawnProbability" value="1" min="0" max="10000">
 			<br>
 
 			<label for="direction">direction</label>
-			<input type="number" id="direction" value="0">
+			<input onchange="onClickVariables()" type="range" id="direction" value="0" min="0" max="360">
 			<br>
 
 			<label for="directionRandom">directionRandom</label>
-			<input type="number" id="directionRandom" value="0">
+			<input onchange="onClickVariables()" type="range" id="directionRandom" value="0" min="0" max="360">
 			<br>
 
 			<label for="speed">speed</label>
-			<input type="number" id="speed" value="0">
+			<input onchange="onClickVariables()" type="range" id="speed" value="0" min="0" max="1000">
 			<br>
 
 			<label for="speedRandom">speedRandom</label>
-			<input type="number" id="speedRandom" value="0">
+			<input onchange="onClickVariables()" type="range" id="speedRandom" value="0" min="0" max="1000">
 			<br>
 
 			<label for="scale">scale</label>
-			<input type="number" id="scale" value="1">
+			<input onchange="onClickVariables()" type="range" id="scale" value="100" min="0" max="1000">
 			<br>
 
 			<label for="scaleRandom">scaleRandom</label>
-			<input type="number" id="scaleRandom" value="0.5">
+			<input onchange="onClickVariables()" type="range" id="scaleRandom" value="50" min="0" max="1000">
 			<br>
 
 			<label for="scaleSpeed">scaleSpeed</label>
-			<input type="number" id="scaleSpeed" value="0.01">
+			<input onchange="onClickVariables()" type="range" id="scaleSpeed" value="1" min="-100" max="100">
 			<br>
 
 			<label for="scaleSpeedRandom">scaleSpeedRandom</label>
-			<input type="number" id="scaleSpeedRandom" value="0">
+			<input onchange="onClickVariables()" type="range" id="scaleSpeedRandom" value="0" min="-100" max="100">
 			<br>
 
 			<label for="gravityX">gravity X</label>
-			<input type="number" id="gravityX" value="0">
+			<input onchange="onClickVariables()" type="range" id="gravityX" value="0" min="-100" max="100">
 			<br>
 
 			<label for="gravityY">gravity Y</label>
-			<input type="number" id="gravityY" value="0">
+			<input onchange="onClickVariables()" type="range" id="gravityY" value="0" min="-100" max="100">
 			<br>
 
 			<label for="rotation">rotation</label>
-			<input type="number" id="rotation" value="45">
+			<input onchange="onClickVariables()" type="range" id="rotation" value="45" min="0" max="360">
 			<br>
 
 			<label for="rotationRandom">rotationRandom</label>
-			<input type="number" id="rotationRandom" value="180">
+			<input onchange="onClickVariables()" type="range" id="rotationRandom" value="180" min="0" max="360">
 			<br>
 
 			<label for="rotationSpeed">rotationSpeed</label>
-			<input type="number" id="rotationSpeed" value="0.1">
+			<input onchange="onClickVariables()" type="range" id="rotationSpeed" value="10" min="0" max="1000">
 			<br>
 
 			<label for="rotationSpeedRandom">rotationSpeedRandom</label>
-			<input type="number" id="rotationSpeedRandom" value="0.2">
+			<input onchange="onClickVariables()" type="range" id="rotationSpeedRandom" value="20" min="0" max="1000">
 			<br>
 
 			<label for="damping">damping</label>
-			<input type="number" id="damping" value="0.97">
+			<input onchange="onClickVariables()" type="range" id="damping" value="100" min="90" max="110">
 			<br>
 
 			<label for="dampingRandom">dampingRandom</label>
-			<input type="number" id="dampingRandom" value="0.03">
+			<input onchange="onClickVariables()" type="range" id="dampingRandom" value="0" min="0" max="100">
 			<br>
 
 			<label for="life">life</label>
-			<input type="number" id="life" value="40">
+			<input onchange="onClickVariables()" type="range" id="life" value="40" min="0" max="100">
 			<br>
 
 			<label for="lifeRandom">lifeRandom</label>
-			<input type="number" id="lifeRandom" value="20">
+			<input onchange="onClickVariables()" type="range" id="lifeRandom" value="20" min="0" max="100">
 			<br>
 			<br>
 
-			<button onclick="onClickVariables()">Apply changes</button>
-			<br>
-			<br>
 			<div>
 				<button style="width:40px;height:40px" onclick="spawner(0)"></button>
 				<button style="width:40px;height:40px" onclick="spawner(1)"></button>
