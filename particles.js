@@ -1,21 +1,32 @@
 function angle2radian(angle){return angle*Math.PI/180.0;}
 function randomRange(magnitude){return (Math.random()*2-1)*magnitude;}
 var canvas, canvasObj;
-var imagesLoader;
+var resourceLoader;
 var particleSprites = [];
 function init(){
-	imagesLoader = document.getElementById('images');
-    imagesLoader.style.visibility="hidden";
+	resourceLoader = document.getElementById('resources');
+    resourceLoader.style.visibility="hidden";
     canvasObj=document.getElementById('canvas');
     canvas=canvasObj.getContext('2d');
     requestAnimationFrameInit();
     loopTime=performance.now();
-	particleSprites.push(loadImage("particles0.png"));
-	particleSprites.push(loadImage("particles1.png"));
-	particleSprites.push(loadImage("particles2.png"));
-	particleSprites.push(loadImage("particles3.png"));
+	particleSprites.push(loadImage("particles/particles0.png"));
+	particleSprites.push(loadImage("particles/particles1.png"));
+	particleSprites.push(loadImage("particles/particles2.png"));
+	particleSprites.push(loadImage("particles/particles3.png"));
+	video = loadVideo("media/video.mp4"); 
 	start();
     loopDraw();
+}
+
+function loadVideo(src){
+	var video = document.createElement("VIDEO");
+	video.src = src;
+	video.muted = true;
+	video.autoplay = true;
+	video.loop = true
+    resourceLoader.appendChild(video);
+    return video;
 }
 
 function loadImage(src){
@@ -25,7 +36,7 @@ function loadImage(src){
         this.ready = true;
     });
     img.src=src;
-    imagesLoader.appendChild(img);
+    resourceLoader.appendChild(img);
     return img;
 }
 
@@ -37,6 +48,7 @@ function loopDraw(){
 	setBackground(0,0,0);
 	canvas.setTransform(1,0,0,1,0,0);
     canvas.clearRect(0,0,canvasObj.width, canvasObj.height);
+    canvas.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
     loop();
     requestAnimation(loopDraw);
 }

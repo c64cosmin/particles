@@ -1,107 +1,133 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<title>Particles</title>
-</head>
-<meta name="viewport" content="user-scalable=no"/>
-<body id="body" onload="init()">
-<div id="images" style="display:none"></div>
-<canvas id="canvas" width="405" height="720" style="position: absolute;"></canvas>
-<script src="particles.js"></script>
-<div style="margin-left: 500px; position: absolute;">
-<label for="image">image</label>
-<input type="number" id="image" value="2">
-<br>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<title>Particles</title>
+		<link rel="icon" href="data:,">
+		<style>
+	      #player {
+	        position: absolute;
+	        left: 0px;
+	        top: 0px;
+	        float: left;
+	        border : 1px solid #444444;
+	        padding: 10px;
+	        margin: 10px;
+	        background: #3B3B3B;
+	      }
+	      #controls {
+	      	position: absolute;
+	        left: 500px;
+	        top: 50px;
+	        float: left;
+	        border : 1px solid #444444;
+	        padding: 10px;
+	        margin: 10px;
+	        /*background: #3B3B3B;*/
+	      }
+    	</style>
+	</head>
+	<meta name="viewport" content="user-scalable=no"/>
+	<body id="body" onload="init()">
+		<div id="resources"></div>
+		<div id="player">
+      		<canvas id="canvas" width="360" height="640"></canvas>
+    	</div>
+		
+		<script src="particles.js"></script>
+		<div id="controls">
+			<label for="image">image</label>
+			<input type="number" id="image" value="2">
+			<br>
 
-<label for="spawnProbability">spawnProbability</label>
-<input type="number" id="spawnProbability" value="1">
-<br>
+			<label for="spawnProbability">spawnProbability</label>
+			<input type="number" id="spawnProbability" value="1">
+			<br>
 
-<label for="direction">direction</label>
-<input type="number" id="direction" value="0">
-<br>
+			<label for="direction">direction</label>
+			<input type="number" id="direction" value="0">
+			<br>
 
-<label for="directionRandom">directionRandom</label>
-<input type="number" id="directionRandom" value="0">
-<br>
+			<label for="directionRandom">directionRandom</label>
+			<input type="number" id="directionRandom" value="0">
+			<br>
 
-<label for="speed">speed</label>
-<input type="number" id="speed" value="0">
-<br>
+			<label for="speed">speed</label>
+			<input type="number" id="speed" value="0">
+			<br>
 
-<label for="speedRandom">speedRandom</label>
-<input type="number" id="speedRandom" value="0">
-<br>
+			<label for="speedRandom">speedRandom</label>
+			<input type="number" id="speedRandom" value="0">
+			<br>
 
-<label for="scale">scale</label>
-<input type="number" id="scale" value="1">
-<br>
+			<label for="scale">scale</label>
+			<input type="number" id="scale" value="1">
+			<br>
 
-<label for="scaleRandom">scaleRandom</label>
-<input type="number" id="scaleRandom" value="0.5">
-<br>
+			<label for="scaleRandom">scaleRandom</label>
+			<input type="number" id="scaleRandom" value="0.5">
+			<br>
 
-<label for="scaleSpeed">scaleSpeed</label>
-<input type="number" id="scaleSpeed" value="0.01">
-<br>
+			<label for="scaleSpeed">scaleSpeed</label>
+			<input type="number" id="scaleSpeed" value="0.01">
+			<br>
 
-<label for="scaleSpeedRandom">scaleSpeedRandom</label>
-<input type="number" id="scaleSpeedRandom" value="0">
-<br>
+			<label for="scaleSpeedRandom">scaleSpeedRandom</label>
+			<input type="number" id="scaleSpeedRandom" value="0">
+			<br>
 
-<label for="gravityX">gravity X</label>
-<input type="number" id="gravityX" value="0">
-<br>
+			<label for="gravityX">gravity X</label>
+			<input type="number" id="gravityX" value="0">
+			<br>
 
-<label for="gravityY">gravity Y</label>
-<input type="number" id="gravityY" value="0">
-<br>
+			<label for="gravityY">gravity Y</label>
+			<input type="number" id="gravityY" value="0">
+			<br>
 
-<label for="rotation">rotation</label>
-<input type="number" id="rotation" value="45">
-<br>
+			<label for="rotation">rotation</label>
+			<input type="number" id="rotation" value="45">
+			<br>
 
-<label for="rotationRandom">rotationRandom</label>
-<input type="number" id="rotationRandom" value="180">
-<br>
+			<label for="rotationRandom">rotationRandom</label>
+			<input type="number" id="rotationRandom" value="180">
+			<br>
 
-<label for="rotationSpeed">rotationSpeed</label>
-<input type="number" id="rotationSpeed" value="0.1">
-<br>
+			<label for="rotationSpeed">rotationSpeed</label>
+			<input type="number" id="rotationSpeed" value="0.1">
+			<br>
 
-<label for="rotationSpeedRandom">rotationSpeedRandom</label>
-<input type="number" id="rotationSpeedRandom" value="0.2">
-<br>
+			<label for="rotationSpeedRandom">rotationSpeedRandom</label>
+			<input type="number" id="rotationSpeedRandom" value="0.2">
+			<br>
 
-<label for="damping">damping</label>
-<input type="number" id="damping" value="0.97">
-<br>
+			<label for="damping">damping</label>
+			<input type="number" id="damping" value="0.97">
+			<br>
 
-<label for="dampingRandom">dampingRandom</label>
-<input type="number" id="dampingRandom" value="0.03">
-<br>
+			<label for="dampingRandom">dampingRandom</label>
+			<input type="number" id="dampingRandom" value="0.03">
+			<br>
 
-<label for="life">life</label>
-<input type="number" id="life" value="40">
-<br>
+			<label for="life">life</label>
+			<input type="number" id="life" value="40">
+			<br>
 
-<label for="lifeRandom">lifeRandom</label>
-<input type="number" id="lifeRandom" value="20">
-<br>
-<br>
+			<label for="lifeRandom">lifeRandom</label>
+			<input type="number" id="lifeRandom" value="20">
+			<br>
+			<br>
 
-<button onclick="onClickVariables()">Apply changes</button>
-<br>
-<br>
+			<button onclick="onClickVariables()">Apply changes</button>
+			<br>
+			<br>
 
-<button onclick="ex0()">Example 0</button>
-<button onclick="ex1()">Example 1</button>
-<button onclick="ex2()">Example 2</button>
-<button onclick="ex3()">Example 3</button>
-</div>
-</body>
+			<button onclick="ex0()">Example 0</button>
+			<button onclick="ex1()">Example 1</button>
+			<button onclick="ex2()">Example 2</button>
+			<button onclick="ex3()">Example 3</button>
+		</div>
+	</body>
 </html>
