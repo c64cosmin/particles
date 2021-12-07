@@ -229,7 +229,7 @@ function onClickVariables(){
 	particles.speedRandom = parseFloat(document.getElementById("speedRandom").value*0.01);
 	particles.scale = parseFloat(document.getElementById("scale").value*0.01);
 	particles.scaleRandom = parseFloat(document.getElementById("scaleRandom").value*0.01);
-	particles.scaleSpeed = parseFloat(document.getElementById("scaleSpeed").value*0.01);
+	particles.scaleSpeed = parseFloat(document.getElementById("scaleSpeed").value*0.001);
 	particles.scaleSpeedRandom = parseFloat(document.getElementById("scaleSpeedRandom").value*0.01);
 	particles.gravity.x = parseFloat(document.getElementById("gravityX").value*0.01);
 	particles.gravity.y = parseFloat(document.getElementById("gravityY").value*0.01);
@@ -256,7 +256,7 @@ function ex0(){
 	setParam("speedRandom", 50);
 	setParam("scale", 50);
 	setParam("scaleRandom", 30);
-	setParam("scaleSpeed", -4);
+	setParam("scaleSpeed", -40);
 	setParam("scaleSpeedRandom", 0);
 	setParam("gravityX", 0);
 	setParam("gravityY", 0);
@@ -280,7 +280,7 @@ function ex1(){
 	setParam("speedRandom", 50);
 	setParam("scale", 50);
 	setParam("scaleRandom", 30);
-	setParam("scaleSpeed", 4);
+	setParam("scaleSpeed", 40);
 	setParam("scaleSpeedRandom", 1);
 	setParam("gravityX", 0);
 	setParam("gravityY", 0);
@@ -304,7 +304,7 @@ function ex2(){
 	setParam("speedRandom", 350);
 	setParam("scale", 50);
 	setParam("scaleRandom", 30);
-	setParam("scaleSpeed", 1);
+	setParam("scaleSpeed", 10);
 	setParam("scaleSpeedRandom", 1);
 	setParam("gravityX", 0);
 	setParam("gravityY", 20);
@@ -328,7 +328,7 @@ function ex3(){
 	setParam("speedRandom", 350);
 	setParam("scale", 50);
 	setParam("scaleRandom", 30);
-	setParam("scaleSpeed", 1);
+	setParam("scaleSpeed", 10);
 	setParam("scaleSpeedRandom", 1);
 	setParam("gravityX", 0);
 	setParam("gravityY", -20);
@@ -351,7 +351,7 @@ function ex4(){
 	setParam("speedRandom", 0);
 	setParam("scale", 50);
 	setParam("scaleRandom", 30);
-	setParam("scaleSpeed", 1);
+	setParam("scaleSpeed", 10);
 	setParam("scaleSpeedRandom", 1);
 	setParam("gravityX", 0);
 	setParam("gravityY", 0);
@@ -364,6 +364,30 @@ function ex4(){
 	setParam("life", 50);
 	setParam("lifeRandom", 10);
 	onClickVariables();
+}
+function ex5(){
+	setParam("image", 4);
+	setParam("spawnProbability", 100);
+	setParam("direction", 90);
+	setParam("directionRandom", 20);
+	setParam("speed", 50);
+	setParam("speedRandom", 50);
+	setParam("scale", 50);
+	setParam("scaleRandom", 30);
+	setParam("scaleSpeed", -1);
+	setParam("scaleSpeedRandom", 0);
+	setParam("gravityX", 0);
+	setParam("gravityY", 1);
+	setParam("rotation", 0);
+	setParam("rotationRandom", 360);
+	setParam("rotationSpeed", 0);
+	setParam("rotationSpeedRandom", 1);
+	setParam("damping", 100);
+	setParam("dampingRandom", 0);
+	setParam("life", 400);
+	setParam("lifeRandom", 0);
+	onClickVariables();
+	spawner(1);
 }
 
 function spawner(p){
