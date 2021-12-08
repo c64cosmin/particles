@@ -3,6 +3,7 @@ function randomRange(magnitude){return (Math.random()*2-1)*magnitude;}
 var canvas, canvasObj;
 var resourceLoader;
 var video;
+var videoHidden = false;
 var controls;
 var particleSprites = [];
 function openFullscreen() {
@@ -22,7 +23,7 @@ function openFullscreen() {
 }
 function fullscreen(){
 	particles.fadeShrink=true;
-	video = null;
+	videoHidden = true;
 	controls.style.visibility="hidden";
 	player.style.padding="0px";
 	player.style.margin="0px";
@@ -33,7 +34,7 @@ function fullscreen(){
 function restore(){
 	canvasObj.width=360;
 	canvasObj.height=640;
-	video = loadVideo("media/video.mp4"); 
+	videoHidden = false;
 	controls.style.visibility="";
 	player.style.padding="10px";
 	player.style.margin="10px";
@@ -92,7 +93,7 @@ function setBackground(r, g, b){
 function loopDraw(){
 	canvas.setTransform(1,0,0,1,0,0);
     canvas.clearRect(0,0,canvasObj.width, canvasObj.height);
-    if(video)canvas.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+    if(!videoHidden)canvas.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
     loop();
     requestAnimation(loopDraw);
 }
