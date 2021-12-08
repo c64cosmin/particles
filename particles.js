@@ -20,6 +20,17 @@ function openFullscreen() {
 		}
 });
 }
+function fullscreen(){
+	particles.fadeShrink=true;
+	video = null;
+	controls.style.visibility="hidden";
+	player.style.padding="0px";
+	player.style.margin="0px";
+	player.style.border="0px";
+    document.body.style.overflow="hidden";
+	setBackground(20,30,60);
+	openFullscreen();
+}
 function restore(){
 	canvasObj.width=360;
 	canvasObj.height=640;
@@ -305,11 +316,11 @@ function ex0(){
 	setParam("gravityY", 0);
 	setParam("rotation", 0);
 	setParam("rotationRandom", 360);
-	setParam("rotationSpeed", 0);
+	setParam("rotationSpeed", 100);
 	setParam("rotationSpeedRandom", 10);
 	setParam("damping", 100);
 	setParam("dampingRandom", 0);
-	setParam("life", 20);
+	setParam("life", 100);
 	setParam("lifeRandom", 10);
 	onClickVariables();
 	spawner(4);
@@ -460,17 +471,36 @@ function ex6(){
 	setParam("dampingRandom", 0);
 	setParam("life", 3000);
 	setParam("lifeRandom", 0);
-	particles.fadeShrink=true;
-	video = null;
-	controls.style.visibility="hidden";
-	player.style.padding="0px";
-	player.style.margin="0px";
-	player.style.border="0px";
-    document.body.style.overflow="hidden";
-	onClickVariables();
-	setBackground(20,30,60);
 	spawner(7);
-	openFullscreen();
+	onClickVariables();
+	fullscreen();
+}
+function ex7(){
+	canvasObj.width=1920;
+	canvasObj.height=1080;
+	setParam("spawnProbability", 7);
+	setParam("direction", 270);
+	setParam("directionRandom", 360);
+	setParam("speed", 880);
+	setParam("speedRandom", 50);
+	setParam("scale", 10);
+	setParam("scaleRandom", 70);
+	setParam("scaleSpeed", -1);
+	setParam("scaleSpeedRandom", 0);
+	setParam("gravityX", 0);
+	setParam("gravityY", 0);
+	setParam("rotation", 0);
+	setParam("rotationRandom", 360);
+	setParam("rotationSpeed", 0);
+	setParam("rotationSpeedRandom", 5);
+	setParam("damping", 97);
+	setParam("dampingRandom", 0);
+	setParam("life", 3000);
+	setParam("lifeRandom", 0);
+	spawner(4);
+	onClickVariables();
+	particles.image = loadImage("https://wevideo-static.s3.amazonaws.com/webpage/prod3/img/logosAndGraphics/WeVideoLogoFacebookShare.png");
+	fullscreen();
 }
 
 function spawner(p){
