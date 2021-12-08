@@ -28,7 +28,6 @@ function fullscreen(){
 	player.style.margin="0px";
 	player.style.border="0px";
     document.body.style.overflow="hidden";
-	setBackground(20,30,60);
 	openFullscreen();
 }
 function restore(){
@@ -160,7 +159,7 @@ function Particle(){
 			0, this.scale.y,
 			this.position.x, this.position.y
 		);
-		canvas.rotate(this.rotation);//Math.random()*360);
+		canvas.rotate(angle2radian(this.rotation));//Math.random()*360);
 		canvas.drawImage(
 			this.image,
 			-this.image.width/2,
@@ -289,7 +288,7 @@ function onClickVariables(){
 	particles.gravity.y = parseFloat(document.getElementById("gravityY").value*0.01);
 	particles.rotation = parseFloat(document.getElementById("rotation").value);
 	particles.rotationRandom = parseFloat(document.getElementById("rotationRandom").value);
-	particles.rotationSpeed = parseFloat(document.getElementById("rotationSpeed").value*0.01);
+	particles.rotationSpeed = parseFloat(document.getElementById("rotationSpeed").value*0.1);
 	particles.rotationSpeedRandom = parseFloat(document.getElementById("rotationSpeedRandom").value*0.01);
 	particles.damping = parseFloat(document.getElementById("damping").value*0.01);
 	particles.dampingRandom = parseFloat(document.getElementById("dampingRandom").value*0.01);
@@ -316,7 +315,7 @@ function ex0(){
 	setParam("gravityY", 0);
 	setParam("rotation", 0);
 	setParam("rotationRandom", 360);
-	setParam("rotationSpeed", 100);
+	setParam("rotationSpeed", 1200);
 	setParam("rotationSpeedRandom", 10);
 	setParam("damping", 100);
 	setParam("dampingRandom", 0);
@@ -367,7 +366,7 @@ function ex2(){
 	setParam("rotation", 0);
 	setParam("rotationRandom", 360);
 	setParam("rotationSpeed", 0);
-	setParam("rotationSpeedRandom", 10);
+	setParam("rotationSpeedRandom", 500);
 	setParam("damping", 95);
 	setParam("dampingRandom", 0);
 	setParam("life", 20);
@@ -474,6 +473,7 @@ function ex6(){
 	spawner(7);
 	onClickVariables();
 	fullscreen();
+	setBackground(20,30,60);
 }
 function ex7(){
 	canvasObj.width=1920;
@@ -492,7 +492,7 @@ function ex7(){
 	setParam("rotation", 0);
 	setParam("rotationRandom", 360);
 	setParam("rotationSpeed", 0);
-	setParam("rotationSpeedRandom", 5);
+	setParam("rotationSpeedRandom", 50);
 	setParam("damping", 97);
 	setParam("dampingRandom", 0);
 	setParam("life", 3000);
@@ -501,6 +501,36 @@ function ex7(){
 	onClickVariables();
 	particles.image = loadImage("https://wevideo-static.s3.amazonaws.com/webpage/prod3/img/logosAndGraphics/WeVideoLogoFacebookShare.png");
 	fullscreen();
+	setBackground(20,30,60);
+}
+function ex8(){
+	canvasObj.width=1920;
+	canvasObj.height=1080;
+	setParam("image", 0);
+	setParam("spawnProbability", 70);
+	setParam("direction", 0);
+	setParam("directionRandom", 0);
+	setParam("speed", 0);
+	setParam("speedRandom", 0);
+	setParam("scale", 10);
+	setParam("scaleRandom", 70);
+	setParam("scaleSpeed", -10);
+	setParam("scaleSpeedRandom", 0);
+	setParam("gravityX", 0);
+	setParam("gravityY", 0);
+	setParam("rotation", 0);
+	setParam("rotationRandom", 360);
+	setParam("rotationSpeed", 600);
+	setParam("rotationSpeedRandom", 5);
+	setParam("damping", 100);
+	setParam("dampingRandom", 0);
+	setParam("life", 300);
+	setParam("lifeRandom", 0);
+	spawner(4);
+	onClickVariables();
+	particles.rotationSpeed=120;
+	fullscreen();
+	setBackground(20,30,60);
 }
 
 function spawner(p){
