@@ -4,6 +4,8 @@ var canvas, canvasObj;
 var resourceLoader;
 var videoPlayer;
 var videoHidden = false;
+var drawBg = false;
+var bgImage;
 var controls;
 var particleSprites = [];
 function openFullscreen() {
@@ -42,6 +44,7 @@ function restore(){
     document.body.style.overflow="";
 	setBackground(0,0,0);
 	particles.fadeShrink=false;
+	drawBg=false;
 }
 function init(){
 	resourceLoader = document.getElementById('resources');
@@ -58,6 +61,7 @@ function init(){
 	particleSprites.push(loadImage("particles/particles4.png"));
 	particleSprites.push(loadImage("particles/particles5.png"));
 	particleSprites.push(loadImage("particles/particles6.png"));
+	bgImage = loadImage("media/bg.png");
 	controls = document.getElementById("controls");
 	player = document.getElementById("player");
 	setBackground(0,0,0);
@@ -94,6 +98,7 @@ function loopDraw(){
 	canvas.setTransform(1,0,0,1,0,0);
     canvas.clearRect(0,0,canvasObj.width, canvasObj.height);
     if(!videoHidden)canvas.drawImage(videoPlayer, 0, 0, videoPlayer.videoWidth, videoPlayer.videoHeight);
+	if(drawBg)canvas.drawImage(bgImage, 0,0,canvasObj.width, canvasObj.height);
     loop();
     requestAnimation(loopDraw);
 }
@@ -480,7 +485,7 @@ function ex6(){
 	spawner(7);
 	onClickVariables();
 	fullscreen();
-	setBackground(20,30,60);
+	setBackground(74,38,57);
 }
 function ex7(){
 	canvasObj.width=1920;
@@ -538,6 +543,7 @@ function ex8(){
 	particles.rotationSpeed=120;
 	fullscreen();
 	setBackground(20,30,60);
+	drawBg = true;
 }
 
 function spawner(p){
