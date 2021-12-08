@@ -61,6 +61,7 @@ function init(){
 	particleSprites.push(loadImage("particles/particles4.png"));
 	particleSprites.push(loadImage("particles/particles5.png"));
 	particleSprites.push(loadImage("particles/particles6.png"));
+	particleSprites.push(loadImage("particles/particlesWV.svg"));
 	bgImage = loadImage("media/bg.png");
 	controls = document.getElementById("controls");
 	player = document.getElementById("player");
@@ -490,6 +491,7 @@ function ex6(){
 function ex7(){
 	canvasObj.width=1920;
 	canvasObj.height=1080;
+	setParam("image", 7);
 	setParam("spawnProbability", 7);
 	setParam("direction", 270);
 	setParam("directionRandom", 360);
@@ -511,7 +513,6 @@ function ex7(){
 	setParam("lifeRandom", 0);
 	spawner(4);
 	onClickVariables();
-	particles.image = loadImage("https://wevideo-static.s3.amazonaws.com/webpage/prod3/img/logosAndGraphics/WeVideoLogoFacebookShare.png");
 	fullscreen();
 	setBackground(20,30,60);
 }
