@@ -50,6 +50,7 @@ function init(){
     canvas=canvasObj.getContext('2d');
     requestAnimationFrameInit();
     loopTime=performance.now();
+	videoPlayer = loadVideo("media/video.mp4"); 
 	particleSprites.push(loadImage("particles/particles0.png"));
 	particleSprites.push(loadImage("particles/particles1.png"));
 	particleSprites.push(loadImage("particles/particles2.png"));
@@ -57,7 +58,6 @@ function init(){
 	particleSprites.push(loadImage("particles/particles4.png"));
 	particleSprites.push(loadImage("particles/particles5.png"));
 	particleSprites.push(loadImage("particles/particles6.png"));
-	videoPlayer = loadVideo("media/video.mp4"); 
 	controls = document.getElementById("controls");
 	player = document.getElementById("player");
 	setBackground(0,0,0);
@@ -265,8 +265,14 @@ function start(){
 	particles.spawnShape = shape;
 	particles.image = particleSprites[0];
 	particles.life = 50;
-	particles.rotationRandom=360;
-	particles.spawnProbability=10;
+	particles.rotationRandom=3;
+	particles.spawnProbability=1;
+	particles.direction=45;
+	particles.directionRandom=10;
+	particles.speed=4;
+	particles.damping=0.96;
+	particles.speedRandom=3;
+	particles.scaleSpeed =-0.03;
 }
 
 function loop(){
