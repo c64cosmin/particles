@@ -485,7 +485,7 @@ function ex6(){
 	spawner(7);
 	onClickVariables();
 	fullscreen();
-	setBackground(74,38,57);
+	setBackground(190,98,147);
 }
 function ex7(){
 	canvasObj.width=1920;
